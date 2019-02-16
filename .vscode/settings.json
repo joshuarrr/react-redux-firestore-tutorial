@@ -2,6 +2,10 @@
   "workbench.colorCustomizations": {
     "editor.background": "#121212",
     "editorGroup.border": "#000",
+    "editor.selectionBackground": "#31a5baa1",
+    "editor.selectionHighlightBackground": "#12c3e222",
+    "editor.wordHighlightBackground": "#128fe222",
+    "editorCursor.foreground": "#0cc6c9",
     "editor.lineHighlightBorder": "#00000000",
     "editor.lineHighlightBackground": "#090909",
     "statusBar.background": "#000000",

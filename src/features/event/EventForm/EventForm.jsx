@@ -9,9 +9,6 @@ const emptyEvent = {
   hostedBy: ''
 }
 
-
-
-
 class EventForm extends Component {
   state = {
     event: emptyEvent
@@ -34,11 +31,14 @@ class EventForm extends Component {
       })
     }
   }
-  
 
   onFormSubmit = evt => {
     evt.preventDefault()
-    this.props.createEvent(this.state.event)
+    if (this.state.event.id) {
+      this.props.updateEvent(this.state.event)
+    } else {
+      this.props.createEvent(this.state.event)
+    }
   }
 
   onInputChange = evt => {
@@ -48,7 +48,6 @@ class EventForm extends Component {
       event: newEvent
     })
   }
-
 
   render() {
     const { event } = this.state
