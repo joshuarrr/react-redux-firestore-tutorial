@@ -70,18 +70,18 @@ class EventDashboard extends Component {
   handleCancel = () => {
     this.setState({
       isOpen: false
-    });
-  };
+    })
+  }
 
   handleCreateEvent = newEvent => {
     newEvent.id = cuid()
-    newEvent.hostPhotoURL = '/assets/user.png'
+    newEvent.PhotoURL = '/assets/user.png'
     const updatedEvents = [...this.state.events, newEvent]
     this.setState({
       events: updatedEvents,
       isOpen: false
     })
-  };
+  }
 
   render() {
     return (
@@ -104,8 +104,8 @@ class EventDashboard extends Component {
           }
         </Grid.Column>
       </Grid>
-    );
+    )
   }
 }
 
-export default EventDashboard;
+export default EventDashboard

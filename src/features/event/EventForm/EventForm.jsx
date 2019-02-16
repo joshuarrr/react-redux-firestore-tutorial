@@ -1,33 +1,33 @@
-import React, { Component } from "react";
-import { Segment, Form, Button } from "semantic-ui-react";
+import React, { Component } from 'react'
+import { Segment, Form, Button } from 'semantic-ui-react'
 
 class EventForm extends Component {
   state = {
     event: {
-      title: "",
-      date: "",
-      city: "",
-      venue: "",
-      hostedBy: ""
+      title: '',
+      date: '',
+      city: '',
+      venue: '',
+      hostedBy: ''
     }
-  };
+  }
 
   onFormSubmit = evt => {
-    evt.preventDefault();
+    evt.preventDefault()
     this.props.createEvent(this.state.event)
-  };
+  }
 
   onInputChange = evt => {
-    const newEvent = this.state.event;
-    newEvent[evt.target.name] = evt.target.value;
+    const newEvent = this.state.event
+    newEvent[evt.target.name] = evt.target.value
     this.setState({
       event: newEvent
-    });
-  };
+    })
+  }
 
   render() {
-    const { event } = this.state;
-    const { handleCancel } = this.props;
+    const { event } = this.state
+    const { handleCancel } = this.props
     return (
       <Segment>
         <Form onSubmit={this.onFormSubmit}>
@@ -85,8 +85,8 @@ class EventForm extends Component {
           </Button>
         </Form>
       </Segment>
-    );
+    )
   }
 }
 
-export default EventForm;
+export default EventForm
