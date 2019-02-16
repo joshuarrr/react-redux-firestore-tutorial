@@ -75,14 +75,28 @@ class EventDashboard extends Component {
     })
   }
 
-  handleEditEvent = eventToUpdate => () => {
+  handleUpdateEvent = (updatedEvent) => {
     this.setState({
-      selectedEvent: eventToUpdate,
+      events: this.state.events.map(event => {
+        if (event.id === updatedEvent.id) {
+          return Object.assign({}, updatedEvent)
+        } else {
+          return event
+        }
+      }),
+      isOpen: false,
+      selectedEvent: null
+    })
+  }
+
+  handleOpenEvent = (eventToOpen) => () => {
+    this.setState({
+      selectedEvent: eventToOpen,
       isOpen: true
     })
   }
 
-  handleCreateEvent = newEvent => {
+  handleCreateEvent = (newEvent) => {
     newEvent.id = cuid()
     newEvent.PhotoURL = "/assets/user.png"
     const updatedEvents = [...this.state.events, newEvent]
@@ -92,14 +106,23 @@ class EventDashboard extends Component {
     })
   }
 
+  handleDeleteEvent = (eventId) => () => {
+    const updatedEvents = this.state.events.filter(e => e.id !== eventId)
+    this.setState({
+      events: updatedEvents
+    })
+  }
+  
+
   render() {
     const {selectedEvent} = this.state
     return (
       <Grid>
         <Grid.Column width={10}>
           <EventList
-            onEventEdit={this.handleEditEvent}
+            onEventOpen={this.handleOpenEvent}
             events={this.state.events}
+            deleteEvent={this.handleDeleteEvent}
           />
         </Grid.Column>
         <Grid.Column width={6}>
@@ -113,6 +136,7 @@ class EventDashboard extends Component {
               handleCancel={this.handleCancel}
               createEvent={this.handleCreateEvent}
               selectedEvent={selectedEvent}
+              updateEvent={this.handleUpdateEvent}
             />
           )}
         </Grid.Column>
