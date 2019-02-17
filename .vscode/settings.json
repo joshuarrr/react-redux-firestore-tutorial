@@ -25,7 +25,7 @@
     "tab.unfocusedInactiveForeground": "#444",
     "tab.unfocusedHoverBackground": "#111",
     "tab.unfocusedHoverBorder": "#000",
-    "tab.unfocusedActiveForeground": "#1f1e1e",
+    "tab.unfocusedActiveForeground": "#777",
     "tab.unfocusedActiveBorderTop": "#000",
     "tab.activeBackground": "#222",
     "tab.activeForeground": "#ccc",
