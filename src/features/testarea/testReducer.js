@@ -1,10 +1,11 @@
 import { createReducer } from '../../app/common/util/reducerUtil'
-import { DECREMENT_COUNTER, INCREMENT_COUNTER } from './testConstants'
+// import { DECREMENT_COUNTER, INCREMENT_COUNTER } from './testConstants'
 
 const initialState = {
   data: 420
 }
 
+// update the store
 export const incrementCounter = (state, payload) => {
   return { ...state, data: state.data + 1 }
 }

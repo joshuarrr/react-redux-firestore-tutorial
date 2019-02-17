@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Button } from 'semantic-ui-react'
 import { incrementCounter, decrementCounter } from './testActions'
 
-// get data from store
+// get data from store (mapStateToProps)
 const mapState = state => ({
   data: state.test.data
 })
@@ -21,6 +21,7 @@ class TestComponent extends Component {
       <div>
         <h1>Test</h1>
         <h2>The answer is: {data}</h2>
+        {/*  mapDispatchToProps */}
         <Button onClick={incrementCounter} color='green' content='increment' />
         <Button onClick={decrementCounter} color='red' content='decrement' />
       </div>
